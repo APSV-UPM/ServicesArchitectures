@@ -1,2 +1,2 @@
-# Services Arquitecture Case Study: Logistic Trasnportation
+# Services Arquitecture - Case Study: Logistic Trasnportation
 
