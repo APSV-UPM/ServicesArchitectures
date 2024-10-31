@@ -95,7 +95,7 @@ A series of questions appear:
 - add dependencies: Spring Boot DevTools, Spring Web
 - place for the project: a new folder under your development folder.
 
-## Development of Java-SB projects with VSC¡
+## Development of Java-SB projects with VSC
 A project such as TransportationOrderServer0 contains sub-folders and files: 
 - `pom.xml` gather all the information of libraries and versions to be used in 
 the project, so Maven downloads them to keep the project stable. Maven is also 
