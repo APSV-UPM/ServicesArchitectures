@@ -1,4 +1,4 @@
-# Arquitecture <img src="./statics/common/under_construction_sign.png" alt="sign_under_construction" width="35"/>
+# Arquitecture <img src="../statics/common/under_construction_sign.png" alt="sign_under_construction" width="35"/>
 
 Once a review of the Logistics case study domain model has been done, it is 
 time to think about architectural and detailed design: which pieces and 
@@ -15,7 +15,7 @@ each truck, its status (onRoad, arrived), and the expected time of arrival
 (ETA).
 
 ![tracking_system_context_diagram](
-./statics/arquitecture/tracking_system_context_diagram.png)
+../statics/docs/arquitecture/tracking_system_context_diagram.png)
 
 ## The core tracking domain model
 
@@ -25,7 +25,7 @@ getting only these two concepts as relevant and trying to simplify the
 relationship between them.
 
 ![tracking_core_domain_model](
-./statics/arquitecture/tracking_core_domain_model.png)
+../statics/docs/arquitecture/tracking_core_domain_model.png)
 
 The relationship between `TransportationOrder` and `Trace` will be substituted 
 by the inclusion of the `truck id` as a field that both have in common, as the 
@@ -101,7 +101,7 @@ application in a synchronous way (accessing the API-REST). There will be client
 applications for each server application.
 
 ![tracking_system_containers_diagram](
-./statics/arquitecture/tracking_system_containers_diagram.png)
+../statics/docs/arquitecture/tracking_system_containers_diagram.png)
 
 ## Tracking system components diagram
 
@@ -134,7 +134,7 @@ TransportationOrder, and stores the Trace using its repository. This component
 follows the Events-Driven-Architecture principles.
 
 ![tracking_system_components_diagram](
-./statics/arquitecture/tracking_system_components_diagram.png)
+../statics/docs/arquitecture/tracking_system_components_diagram.png)
 
 In summary, the TransportationOrder server and the Trace server are separate 
 containers, each connecting to its own database. The TransportationOrder server 
@@ -166,7 +166,7 @@ Traces
 - generated a repository per domain concept whose state will be stored
 
 ![tracking_system_classes_diagram_1](
-./statics/arquitecture/tracking_system_classes_diagram_1.png)
+../statics/docs/arquitecture/tracking_system_classes_diagram_1.png)
 
 For the implementation of microservices, we will use the Spring Boot Java 
 framework. It eases the development by applying the “convention over 
@@ -191,7 +191,7 @@ current status of TransportationOrders
 Traces from trucks
 
 ![tracking_system_classes_diagram_2](
-./statics/arquitecture/tracking_system_classes_diagram_2.png)
+../statics/docs/arquitecture/tracking_system_classes_diagram_2.png)
 
 To test the system, as no real GPS-enabled trucks will be used, we provide the 
 GPSEnabledTrucksSimulator project. This project emulates the production of 

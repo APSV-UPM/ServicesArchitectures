@@ -1,4 +1,4 @@
-# Enviroment Configuration <img src="./statics/common/under_construction_sign.png" alt="sign_under_construction" width="35"/>
+# Enviroment Configuration <img src="../statics/common/under_construction_sign.png" alt="sign_under_construction" width="35"/>
 
 Modern software development relies on components, libraries and other 
 artifacts so developers focus on the core of their job. Reusing predefined 
