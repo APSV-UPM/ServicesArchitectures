@@ -27,16 +27,17 @@ relationship between them.
 ![tracking_core_domain_model](
 ./statics/arquitecture/tracking_core_domain_model.png)
 
-The relationship between TransportationOrder and Trace will be substituted by 
-the inclusion of the truck id as a field that both have in common, as the 
-traces come from the truck and the TransportationOrders are given to a single 
-truck. Of course this means we will add some more code than if we directly 
-support the relationship but this code is quite simple.
+The relationship between `TransportationOrder` and `Trace` will be substituted 
+by the inclusion of the `truck id` as a field that both have in common, as the 
+traces come from the `truck` and the `TransportationOrders` are given to a 
+single `truck`. Of course this means we will add some more code than if we 
+directly support the relationship but this code is quite simple.
 
-The truck id may be the key for TransportationOrders provided we only store 
+The `truck id` may be the key for TransportationOrders provided we only store 
 live orders -historic records must be stored elsewhere. It can not be the key 
-for Traces as a truck will generate many of them. In any case, having the same 
-truck id is a good way to correlate the Trace with the TransportationOrder.
+for `Traces` as a truck will generate many of them. In any case, having the 
+same truck id is a good way to correlate the `Trace` with the 
+`TransportationOrder`.
 
 Coordinates will be stored as latitude and longitude double values, and dates 
 and timestamps will be handled with long values (which is very common and handy 
@@ -44,24 +45,25 @@ if the time is referred to the same origin). No helper classes will be defined
 to keep it simple, and status will be stored as an int.
 
 The minimum set of attributes for TransportationOrders is:
-- String truck as key
-- long originDate
-- double originLat
-- double originLong
-- long dstDate
-- double dstLat
-- double dstLong
-- long lastDate
-- double lastLat
-- double lastLong
-- int st for the status.
+- String `truck` as key
+- long `originDate`
+- double `originLat`
+- double `originLong`
+- long `dstDate`
+- double `dstLat`
+- double `dstLong`
+- long `lastDate`
+- double `lastLat`
+- double `lastLong`
+- int `st` for the status.
 
 And the set of attributes for a Trace:
-- String traceId as the key, obtained as a concatenation of truck id and timestamp (lastSeen)
-- String truck
-- long lastSeen
-- double lat
-- double lng
+- String `traceId` as the key, obtained as a concatenation of truck id and 
+timestamp (lastSeen)
+- String `truck`
+- long `lastSeen`
+- double `lat`
+- double `lng`
 
 ## Tracking system containers diagram
 
