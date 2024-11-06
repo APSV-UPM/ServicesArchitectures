@@ -73,6 +73,8 @@ workspace). Download and unzip the projects within this folder.
 You could also clone the projects with `git` command inside your development 
 folder using
 ```
+mkdir APSVServicesArchitectures
+cd APSVServicesArchitectures
 git clone https://github.com/juancarlosduenas/TransportationOrderServer0.git
 git clone https://github.com/juancarlosduenas/TraceServer0.git
 git clone https://github.com/juancarlosduenas/GPSEnabledTrucksSimulator.git
@@ -97,14 +99,15 @@ If you need to create a brand-new Java-SB project from scratch, fill out the
 following [form](https://start.spring.io/), answering the questions so you get 
 a zip file that you must download and unzip in your development folder.
 
-A series of questions appear:
+A series of questions appear. For example the project `TraceServer0` was build 
+with the following characteristics.  
 - project: `Maven`
-- Spring Boot version: `3.3.5`
+- Spring Boot version: `2.7.17`
 - project language: `Java`
 - group: `es.upm.dit.apsv`
 - artifact: `traceserver`
 - packaging type: `jar`
-- Java version: `17`
+- Java version: `11`
 - add dependencies: `Spring Boot DevTools` and `Spring Web`
 - place for the project: a new folder under your development folder.
 
