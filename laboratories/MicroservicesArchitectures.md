@@ -12,7 +12,7 @@ have been downloaded and charged in VSC the projects
 `TransportationOrderServer0` and `TraceServer0`.
 
 Next, we explain the development of the `TransportationOrderServer0` project 
-that you have downloaded from Gitlab; it handles `TransportationOrder`. As we 
+that you have downloaded from GitHub; it handles `TransportationOrder`. As we 
 are going to develop two projects and two different SB applications, they will 
 run on their own server, and therefore they must be attached to different ports.
 
@@ -107,6 +107,7 @@ public class TransportationOrder {
         return Math.sqrt(Math.pow(this.dstLat -this.lastLat, 2)
                     + Math.pow(this.dstLong - this.lastLong, 2));
     }
+}
 ```
 
 
@@ -117,6 +118,12 @@ constructor body, `hashCode` and `equals` methods.
 
 ```
 package es.upm.dit.apsv.traceserver.model;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Getter @Setter @NoArgsConstructor @ToString
@@ -129,7 +136,10 @@ public class Trace {
     private double lng;
     
     public Trace(String traceId, String truck, long lastSeen,
-                 double lat, double lng) { ... }
+                 double lat, double lng) { 
+    
+    }
+}
 ```
 
 
@@ -171,6 +181,7 @@ import org.springframework.data.repository.CrudRepository;
 import es.upm.dit.apsv.traceserver.model.Trace;
 
 public interface TraceRepository extends CrudRepository<Trace,String> {
+
 }
 ```
 
@@ -289,6 +300,21 @@ called to know if it is null.
 slightly different way, just to show a different style. See below:
 
 ```
+package es.upm.dit.apsv.traceserver.controller;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import es.upm.dit.apsv.traceserver.model.Trace;
+import es.upm.dit.apsv.traceserver.repository.TraceRepository;
+
 @RestController
 public class TraceController {
 
