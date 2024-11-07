@@ -30,7 +30,7 @@ be imported from GitHub
 https://github.com/juancarlosduenas/GPSEnabledTrucksSimulator.git) that behaves 
 as a simulator of GPS devices mounted on trucks -producing `Traces`. There is 
 also a kafka queue whose configuration files can be found in that same project; 
-this will not work unless kafka and docker are installed in your machine. The 
+this will not work unless docker is installed in your machine. The 
 `TransportationOrderServer0` project must be in place so `TransportationOrders` 
 are stored utilizing its microservice. In its first version, the project 
 `TraceServer0` must hold the operations required to get Traces from the kafka 
@@ -112,6 +112,9 @@ Both files must be given execution permissions:
 chmod 700 start-servers.sh
 chmod 700 stop-servers.sh
 ```
+
+Take in mind that newer versions of Docker does not recognize `docker-compose` 
+as a command and must be substituted with `docker compose`.
 
 If you want to use DIT lab machines, you must start Docker this way:
 - open a new terminal window and run `sudo /usr/sbin/usermod -a -G docker $USER`
@@ -294,6 +297,8 @@ the Trace, so its `TraceRepository` must be defined as an attribute. Some
 additional imports are included.
 
 ```
+package es.upm.dit.apsv.traceserver;
+
 import java.util.function.Consumer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -369,6 +374,8 @@ The `checkTrace` method is in `TraceServerApplication`; `TraceRepository`, and
 below for convenience.
 
 ```
+package es.upm.dit.apsv.traceserver;
+
 import java.util.function.Consumer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -403,8 +410,8 @@ public class TraceServerApplication {
     public Consumer<Trace> checkTrace() {
         return t -> {
             t.setTraceId(t.getTruck() + t.getLastSeen());
-            traceRepository.save(t);
-            String uri = “http://localhost:8080/transportationorders/”;
+            tr.save(t);
+            String uri = "http://localhost:8080/transportationorders/";
             RestTemplate restTemplate = new RestTemplate();
             TransportationOrder result = null;
                 
